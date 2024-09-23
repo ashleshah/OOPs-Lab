@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+
+class Queue{
+  private:
+    int front, rear;
+    int queue[100];
+    int n = 100;
+
+  public:
+
+    Queue(){
+      front = -1;
+      rear = -1;
+    }
+
+
+    void Insert(int val){
+
+      if (rear == n - 1)
+        cout << "Queue Overflow" << endl;
+      else {
+        if (front == -1)
+          front = 0;
+        cout << "Insert the element in queue: ";
+        cin >> val;
+        rear++;
+        queue[rear] = val;
+      }
+    }
+
+
+    void Delete() {
+      if (front == -1 || front > rear) {
+        cout << "Queue Underflow" << endl;
+        return;
+      } else {
+        cout << "Element deleted from queue is: " << queue[front] << endl;
+        front++;
+      }
+    }
+
+
+    void Display() {
+      if (front == -1)
+        cout << "Queue is empty" << endl;
+      else {
+        cout << "Queue elements are: ";
+        for (int i = front; i <= rear; i++)
+          cout << queue[i] << " ";
+        cout << endl;
+      }
+    }
+};
+
+int main() {
+    Queue q1;
+    q1.Insert(20);
+    q1.Insert(30);
+    q1.Insert(40);
+    q1.Insert(50);
+    q1.Insert(60);
+    q1.Delete();
+    q1.Display();
+    // int ch;
+    // cout << "1) Insert element to queue" << endl;
+    // cout << "2) Delete element from queue" << endl;
+    // cout << "3) Display all the elements of queue" << endl;
+    // cout << "4) Exit" << endl;
+
+
+    // do {
+    //   cout << "Enter your choice: ";
+    //   cin >> ch;
+    //   switch (ch) {
+    //     case 1: q1.Insert(); break;
+    //     case 2: q1.Delete(); break;
+    //     case 3: q1.Display(); break;
+    //     case 4: cout << "Exit" << endl; break;
+    //     default: cout << "Invalid choice" << endl;
+    //   }
+    // } while(ch != 4);
+
+    return 0;
+}
