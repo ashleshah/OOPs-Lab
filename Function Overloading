@@ -1,0 +1,39 @@
+//FUNCTION OVERLOADING:
+#include <iostream>
+using namespace std;
+
+void area(int a);
+void area(int a,int b);
+void area(float a);
+
+//Area of Square
+void area(int a){
+    cout<<"Area of Square="<<a*a<<endl;
+    return;
+}
+
+//Area of Rectangle
+void area(int a,int b){
+    cout<<"Area of Rectangle="<<a*b<<endl;
+    return;
+}
+
+//Area of Circle
+void area(float a){
+    cout<<"Area of Circle="<<3.14*a*a<<endl;
+    return;
+}
+int main()
+{
+    int side=10;
+    area(side);
+
+    int l=10,w=20;
+    area(l,w);
+
+    float r=2.5;
+    area(r);
+    
+    return 0;
+    
+}
