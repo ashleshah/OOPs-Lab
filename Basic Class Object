@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+class student{
+  
+  public:
+  student()
+  {
+    cout<<"Hello"<<endl<<endl;
+  }
+  
+  ~student()
+  
+  {
+    cout<<"Hi"<<endl<<endl;
+  }
+  
+};
+
+int main() 
+{
+  
+    student a,b,c;
+    return 0;
+}
