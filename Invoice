@@ -1,0 +1,99 @@
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+using namespace std;
+
+class Product {
+public:
+string description;
+int quantity;
+double unitPrice;
+double totalPrice;
+
+Product() : description(&quot;&quot;), quantity(0), unitPrice(0), totalPrice(0) {}
+
+void setProductDetails(string desc, int qty, double price) {
+description = desc;
+quantity = qty;
+unitPrice = price;
+totalPrice = qty * price;
+}
+};
+
+class Invoice {
+private:
+Product products[5];
+int productCount;
+double totalAmount;
+double gstRate;
+
+public:
+Invoice(double gst) : gstRate(gst), productCount(0), totalAmount(0) {}
+
+void addProduct(const Product&amp; product) {
+if (productCount &lt; 5) {
+products[productCount] = product;
+totalAmount += product.totalPrice;
+productCount++;
+} else {
+cout &lt;&lt; &quot;Cannot add more products, limit reached.&quot; &lt;&lt; endl;
+}
+}
+
+double calculateGST() const {
+return totalAmount * (gstRate / 100);
+}
+
+double calculateTotalWithGST() const {
+return totalAmount + calculateGST();
+}
+
+void printInvoice() const {
+cout &lt;&lt; &quot;------------------------------------------------------&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot; INVOICE &quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;------------------------------------------------------&quot; &lt;&lt; endl;
+cout &lt;&lt; setw(10) &lt;&lt; &quot;Product&quot; &lt;&lt; setw(10) &lt;&lt; &quot;Qty&quot; &lt;&lt; setw(15) &lt;&lt; &quot;Unit Price&quot; &lt;&lt; setw(15) &lt;&lt;
+&quot;Total Price&quot; &lt;&lt; endl;
+
+cout &lt;&lt; &quot;------------------------------------------------------&quot; &lt;&lt; endl;
+for (int i = 0; i &lt; productCount; i++) {
+cout &lt;&lt; setw(10) &lt;&lt; products[i].description
+&lt;&lt; setw(10) &lt;&lt; products[i].quantity
+&lt;&lt; setw(15) &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; products[i].unitPrice
+&lt;&lt; setw(15) &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; products[i].totalPrice &lt;&lt; endl;
+}
+
+double gstAmount = calculateGST();
+double totalWithGST = calculateTotalWithGST();
+
+cout &lt;&lt; &quot;------------------------------------------------------&quot; &lt;&lt; endl;
+cout &lt;&lt; setw(35) &lt;&lt; &quot;Subtotal: Rs. &quot; &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; totalAmount &lt;&lt; endl;
+cout &lt;&lt; setw(35) &lt;&lt; &quot;GST @ &quot; &lt;&lt; gstRate &lt;&lt; &quot;%: Rs. &quot; &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; gstAmount
+&lt;&lt; endl;
+cout &lt;&lt; &quot;------------------------------------------------------&quot; &lt;&lt; endl;
+cout &lt;&lt; setw(35) &lt;&lt; &quot;Total Amount: Rs. &quot; &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; totalWithGST &lt;&lt; endl;
+cout &lt;&lt; &quot;------------------------------------------------------&quot; &lt;&lt; endl;
+}
+};
+
+int main() {
+Invoice invoice(18.0); // 18% GST
+
+Product p1, p2, p3, p4, p5;
+
+p1.setProductDetails(&quot;MILK&quot;, 2, 65);
+p2.setProductDetails(&quot;DAL&quot;, 1, 90);
+
+p3.setProductDetails(&quot;BISCUIT&quot;, 4, 10);
+p4.setProductDetails(&quot;SUGAR&quot;, 3, 22.5);
+p5.setProductDetails(&quot;TEA&quot;, 5, 75.6);
+
+invoice.addProduct(p1);
+invoice.addProduct(p2);
+invoice.addProduct(p3);
+invoice.addProduct(p4);
+invoice.addProduct(p5);
+
+invoice.printInvoice();
+
+return 0;
+}
