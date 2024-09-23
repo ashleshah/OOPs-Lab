@@ -1,0 +1,58 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+
+    cout << "MARKSHEET 5th sem Electronics Branch YCCE";
+    cout<<endl;
+    cout<<"________________________________________________";
+   
+    cout<<endl;
+    
+    cout << "|" << setw(2) << "SN"
+         << "|" << setw(10) << "Name of the subject "
+         << "|" << setw(-20) << "Maximum M"
+         << "|" << setw(-20) << "Marks Obtained" << "|";
+    cout << endl;
+    cout<<"__________________________________________________";
+     cout << endl;
+    cout << "|" << setw(2) << "1"
+         << "|" << setw(10) << "     Maths    "
+         << "|" << setw(10) << "100"
+         << "|" << setw(10) << "99";
+    cout << endl;
+    cout<<"__________________________________________________";
+     cout << endl;
+    cout << "|" << setw(2) << "2"
+         << "|" << setw(10) << "English"
+         << "|" << setw(10) << "100"
+         << "|" << setw(10) << "92";
+          cout << endl;
+         cout<<"__________________________________________________";
+    cout << endl;
+    cout << "|" << setw(2) << "3"
+         << "|" << setw(10) << "Physics"
+         << "|" << setw(10) << "100"
+         << "|" << setw(10) << "99";
+         cout<<endl;
+         cout<<"__________________________________________________";
+    cout << endl;
+    cout << "|" << setw(2) << "4"
+         << "|" << setw(10) << "Chemistry"
+         << "|" << setw(10) << "100"
+         << "|" << setw(10) << "98";
+          cout << endl;
+         cout<<"__________________________________________________";
+    cout << endl;
+    cout << "|" << setw(2) << "5"
+         << "|" << setw(10) << "Social Science"
+         << "|" << setw(10) << "100"
+         << "|" << setw(10) << "98";
+         cout << endl;
+         cout<<"__________________________________________________";
+          cout << endl;
+    
+
+    return 0;
+}
