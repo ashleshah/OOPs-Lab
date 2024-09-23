@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+
+
+int main(){
+   int arr[100];
+   int i, x, pos, n;
+   cout<<"Enter the size of Array :";
+   cin>>n;
+
+   for(i=0;i<n;i++){
+    cout<<"Enter element to be inserted: ";
+    cin>>arr[i];
+
+   }
+
+   for(i=0;i<n;i++){
+    cout<<arr[i]<<"\t";
+   }
+   cout<<"\n\n";
+   x=50;
+
+   cout<<"enter the position: ";
+
+   cin>>pos;
+   n++;
+
+   for(i=n-1;i>=pos;i--)
+    arr[i]=arr[i-1];
+
+   arr[pos-1]=x;
+
+   for(i=0;i<n;i++){
+    cout<<arr[i]<<"\t";
+   }
+
+return 0;
+}
