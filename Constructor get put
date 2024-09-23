@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+class item{
+  int number;
+  float cost;
+
+  public:
+   void getdata(int a, float b);
+   void putdata(void);
+
+};
+void item :: getdata(int a,float b){
+  number =  a;
+   cost = b;
+}
+void item:: putdata(void){
+  cout<< "The number is " << number << endl;
+  cout<< "The cost is " << cost <<endl;
+}
+
+int main()
+{   int a=34;
+    float b=56.34;
+    item i1;
+    i1.getdata(a,b);
+    i1.putdata();
+    return 0;
+}
