@@ -1,0 +1,121 @@
+#include <iostream>
+using namespace std;
+
+class Arr {
+private:
+    int arr[100];
+    int size;
+
+public:
+
+    void inputArray(int n) {
+        size = n;
+        cout << "Enter " << n << " elements for the array: ";
+        for (int i = 0; i < size; i++) {
+            cin >> arr[i];
+        }
+    }
+
+
+    void traverse() {
+        cout << "Array elements: ";
+        for (int i = 0; i < size; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+
+
+    void insertion(int element, int position) {
+        if (position < 0 || position > size) {
+            cout << "Invalid position!" << endl;
+            return;
+        }
+        for (int i = size; i > position; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[position] = element;
+        size++;
+    }
+
+
+    void deletion(int position) {
+        if (position < 0 || position >= size) {
+            cout << "Invalid position!" << endl;
+            return;
+        }
+        for (int i = position; i < size - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        size--;
+    }
+
+
+    void sortAscending() {
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+
+    void sortDescending() {
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                if (arr[j] < arr[j + 1]) {
+
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+};
+
+int main() {
+    Arr arr1;
+    int n;
+
+
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    arr1.inputArray(n);
+
+
+    cout << "Original Array: ";
+    arr1.traverse();
+
+
+    int element, position;
+    cout << "Enter the element to insert and its position : ";
+    cin >> element >> position;
+    arr1.insertion(element, position);
+    cout << "Array after insertion: ";
+    arr1.traverse();
+
+
+    cout << "Enter the position of the element to delete : ";
+    cin >> position;
+    arr1.deletion(position);
+    cout << "Array after deletion: ";
+    arr1.traverse();
+
+
+    arr1.sortAscending();
+    cout << "Array after sorting in ascending order: ";
+    arr1.traverse();
+
+
+    arr1.sortDescending();
+    cout << "Array after sorting in descending order: ";
+    arr1.traverse();
+
+    return 0;
+}
