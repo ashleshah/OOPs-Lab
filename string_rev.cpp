@@ -56,14 +56,14 @@ int main() {
     char reversedString[MAX_SIZE]; // Array to store the reversed string
 
     // Prompt the user for input
-    std::cout << "Enter a string (max 99 characters): ";
-    std::cin.getline(inputString, MAX_SIZE); // Read the entire line
+    cout << "Enter a string (max 99 characters): ";
+    cin.getline(inputString, MAX_SIZE); // Read the entire line
 
     // Call the function to reverse the string
     reverseStringUsingStack(inputString, reversedString);
 
     // Display the reversed string
-    std::cout << "Reversed string: " << reversedString << std::endl;
+    cout << "Reversed string: " << reversedString << std::endl;
 
     return 0; // End of the program
 }
