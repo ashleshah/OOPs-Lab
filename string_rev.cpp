@@ -1,5 +1,5 @@
 #include <iostream>
-
+using namespace std;
 #define MAX_SIZE 100 // Maximum size of the stack
 
 // Stack structure to hold characters
